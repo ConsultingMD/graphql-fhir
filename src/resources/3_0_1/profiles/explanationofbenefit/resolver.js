@@ -102,7 +102,7 @@ module.exports.getExplanationOfBenefitByPatientPII = function getExplanationOfBe
 	let { server, version, req, res } = context;
 	const bearerToken = require('../../../../utils/auth0.js')
 	const fetch = require('node-fetch')
-	return fetch('https://fhir.service-dev.grnds.com/fhir/ExplanationOfBenefit/_search?_query=byPatientPII&_sort=-entry.response.created&_lastUpdated=gt1900-06-01', {
+	return fetch('https://fhir.service-dev.grnds.com/fhir/ExplanationOfBenefit/_search?_query=byPatientPII&_sort=-entry.response.created&_lastUpdated=gt2018-06-01', {
 		headers: {
 		  'Authorization': 'Bearer ' + bearerToken,
 		  'Content-Type': 'application/json'
