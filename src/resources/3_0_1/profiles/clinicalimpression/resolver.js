@@ -10,6 +10,8 @@ module.exports.getClinicalImpression = function getClinicalImpression(
 	info,
 ) {
 	let { server, version, req, res } = context;
+	console.log("Request:");
+	console.log(args);
 	return {};
 };
 

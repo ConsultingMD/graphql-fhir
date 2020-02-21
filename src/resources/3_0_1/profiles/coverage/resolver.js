@@ -87,3 +87,34 @@ module.exports.removeCoverage = function removeCoverage(
 	let { server, version, req, res } = context;
 	return {};
 };
+
+/*
+* @name exports.getCoverageByPatientPII
+* @static
+* @summary getCoverageByPatientPII.
+*/
+module.exports.getCoverageByPatientPII = function getCoverageByPatientPII(
+   root,
+   args,
+   context = {},
+   info,
+) {
+   let { server, version, req, res } = context;
+   const bearerToken = require('../../../../utils/auth0.js')
+   const fetch = require('node-fetch')
+   return fetch('https://fhir.uat.grandrounds.com/fhir/Coverage/_search?_query=byPatientPII', {
+	   headers: {
+		 'Authorization': 'Bearer ' + bearerToken,
+		 'Content-Type': 'application/x-www-form-urlencoded'
+	   },
+	   body: `family=${args.family}&usSsnLast4=${args.usSsnLast4}&birthdate=${args.birthdate}`,
+	   method: 'POST'
+	 })
+	 .then(response => {
+		 return response.json();
+	  })
+	  .then(response => {
+		  console.log(response)
+		  return response;
+	  });
+};

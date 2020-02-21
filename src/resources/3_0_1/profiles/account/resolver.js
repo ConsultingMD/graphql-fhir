@@ -10,6 +10,8 @@ module.exports.getAccount = function getAccount(
 	info,
 ) {
 	let { server, version, req, res } = context;
+	console.log("Request:");
+	console.log(args);
 	return {};
 };
 

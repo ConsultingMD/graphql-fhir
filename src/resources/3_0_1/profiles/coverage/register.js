@@ -8,6 +8,7 @@ const {
 	CoverageQuery,
 	CoverageListQuery,
 	CoverageInstanceQuery,
+	CoverageByPatientPII	
 } = require('./query');
 
 /**
@@ -25,6 +26,7 @@ module.exports = {
 	query: {
 		Coverage: CoverageQuery,
 		CoverageList: CoverageListQuery,
+		CoverageByPatientPII: CoverageByPatientPII,		
 	},
 	/**
 	 * Define Mutation Schema's here

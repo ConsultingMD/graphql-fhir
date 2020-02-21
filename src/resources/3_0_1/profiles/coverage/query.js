@@ -7,6 +7,7 @@ const BundleSchema = require('../../schemas/bundle.schema.js');
 const CoverageArgs = require('../../parameters/coverage.parameters.js');
 const ResourceArgs = require('../../parameters/resource.parameters.js');
 const DomainResourceArgs = require('../../parameters/domainresource.parameters.js');
+const SearchByPatientPIIArgs = require('../../parameters/searchbypatientpii.parameters.js');
 
 let args = Object.assign({}, DomainResourceArgs, ResourceArgs, CoverageArgs);
 
@@ -15,6 +16,7 @@ const {
 	getCoverage,
 	getCoverageList,
 	getCoverageInstance,
+	getCoverageByPatientPII,	
 } = require('./resolver');
 
 // Scope Utilities
@@ -57,4 +59,15 @@ module.exports.CoverageInstanceQuery = {
 	resolve: scopeInvariant(scopeOptions, getCoverageInstance),
 	type: CoverageSchema,
 	args: args,
+};
+
+/**
+ * @name exports.CoverageQuery
+ * @summary Coverage query.
+ */
+module.exports.CoverageByPatientPII = {
+	description: 'Query for a Coverage by PatientPII',
+	resolve: scopeInvariant(scopeOptions, getCoverageByPatientPII),
+	type: BundleSchema,
+	args: Object.assign({}, SearchByPatientPIIArgs),
 };

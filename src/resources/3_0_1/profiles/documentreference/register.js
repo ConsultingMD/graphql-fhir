@@ -8,6 +8,7 @@ const {
 	DocumentReferenceQuery,
 	DocumentReferenceListQuery,
 	DocumentReferenceInstanceQuery,
+	DocumentReferenceByPatientPII
 } = require('./query');
 
 /**
@@ -25,6 +26,7 @@ module.exports = {
 	query: {
 		DocumentReference: DocumentReferenceQuery,
 		DocumentReferenceList: DocumentReferenceListQuery,
+		DocumentReferenceByPatientPII: DocumentReferenceByPatientPII,
 	},
 	/**
 	 * Define Mutation Schema's here

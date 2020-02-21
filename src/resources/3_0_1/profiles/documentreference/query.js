@@ -7,6 +7,7 @@ const BundleSchema = require('../../schemas/bundle.schema.js');
 const DocumentReferenceArgs = require('../../parameters/documentreference.parameters.js');
 const ResourceArgs = require('../../parameters/resource.parameters.js');
 const DomainResourceArgs = require('../../parameters/domainresource.parameters.js');
+const SearchByPatientPIIArgs = require('../../parameters/searchbypatientpii.parameters.js');
 
 let args = Object.assign(
 	{},
@@ -20,6 +21,7 @@ const {
 	getDocumentReference,
 	getDocumentReferenceList,
 	getDocumentReferenceInstance,
+	getDocumentReferenceByPatientPII,
 } = require('./resolver');
 
 // Scope Utilities
@@ -40,6 +42,17 @@ module.exports.DocumentReferenceQuery = {
 	resolve: scopeInvariant(scopeOptions, getDocumentReference),
 	type: DocumentReferenceSchema,
 	args: args,
+};
+
+/**
+ * @name exports.DocumentReferenceQuery
+ * @summary DocumentReference query.
+ */
+module.exports.DocumentReferenceByPatientPII = {
+	description: 'Query for a DocumentReference by PatientPII',
+	resolve: scopeInvariant(scopeOptions, getDocumentReferenceByPatientPII),
+	type: BundleSchema,
+	args: Object.assign({}, SearchByPatientPIIArgs),
 };
 
 /**
