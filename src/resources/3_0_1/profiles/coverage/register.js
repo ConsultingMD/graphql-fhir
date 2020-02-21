@@ -24,8 +24,6 @@ module.exports = {
 	 * and these keys must be unique across the entire application, like routes
 	 */
 	query: {
-		Coverage: CoverageQuery,
-		CoverageList: CoverageListQuery,
 		CoverageByPatientPII: CoverageByPatientPII,		
 	},
 	/**
@@ -34,9 +32,6 @@ module.exports = {
 	 * and these keys must be unique across the entire application, like routes
 	 */
 	mutation: {
-		CoverageCreate: CoverageCreateMutation,
-		CoverageUpdate: CoverageUpdateMutation,
-		CoverageRemove: CoverageRemoveMutation,
 	},
 	/**
 	 * These properties are so the core router can setup the approriate endpoint

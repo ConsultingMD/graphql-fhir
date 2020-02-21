@@ -24,8 +24,6 @@ module.exports = {
 	 * and these keys must be unique across the entire application, like routes
 	 */
 	query: {
-		ExplanationOfBenefit: ExplanationOfBenefitQuery,
-		ExplanationOfBenefitList: ExplanationOfBenefitListQuery,
 		ExplanationOfBenefitByPatientPII: ExplanationOfBenefitByPatientPII,
 	},
 	/**
@@ -34,9 +32,6 @@ module.exports = {
 	 * and these keys must be unique across the entire application, like routes
 	 */
 	mutation: {
-		ExplanationOfBenefitCreate: ExplanationOfBenefitCreateMutation,
-		ExplanationOfBenefitUpdate: ExplanationOfBenefitUpdateMutation,
-		ExplanationOfBenefitRemove: ExplanationOfBenefitRemoveMutation,
 	},
 	/**
 	 * These properties are so the core router can setup the approriate endpoint

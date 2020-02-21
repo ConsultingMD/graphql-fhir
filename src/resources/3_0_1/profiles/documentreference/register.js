@@ -24,8 +24,6 @@ module.exports = {
 	 * and these keys must be unique across the entire application, like routes
 	 */
 	query: {
-		DocumentReference: DocumentReferenceQuery,
-		DocumentReferenceList: DocumentReferenceListQuery,
 		DocumentReferenceByPatientPII: DocumentReferenceByPatientPII,
 	},
 	/**
@@ -34,9 +32,6 @@ module.exports = {
 	 * and these keys must be unique across the entire application, like routes
 	 */
 	mutation: {
-		DocumentReferenceCreate: DocumentReferenceCreateMutation,
-		DocumentReferenceUpdate: DocumentReferenceUpdateMutation,
-		DocumentReferenceRemove: DocumentReferenceRemoveMutation,
 	},
 	/**
 	 * These properties are so the core router can setup the approriate endpoint
