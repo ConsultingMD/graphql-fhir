@@ -7,6 +7,7 @@ const BundleSchema = require('../../schemas/bundle.schema.js');
 const ExplanationOfBenefitArgs = require('../../parameters/explanationofbenefit.parameters.js');
 const ResourceArgs = require('../../parameters/resource.parameters.js');
 const DomainResourceArgs = require('../../parameters/domainresource.parameters.js');
+const SearchByPatientPIIArgs = require('../../parameters/searchbypatientpii.parameters.js');
 
 let args = Object.assign(
 	{},
@@ -20,6 +21,7 @@ const {
 	getExplanationOfBenefit,
 	getExplanationOfBenefitList,
 	getExplanationOfBenefitInstance,
+	getExplanationOfBenefitByPatientPII,
 } = require('./resolver');
 
 // Scope Utilities
@@ -62,4 +64,15 @@ module.exports.ExplanationOfBenefitInstanceQuery = {
 	resolve: scopeInvariant(scopeOptions, getExplanationOfBenefitInstance),
 	type: ExplanationOfBenefitSchema,
 	args: args,
+};
+
+/**
+ * @name exports.ExplanationOfBenefitQuery
+ * @summary ExplanationOfBenefit query.
+ */
+module.exports.ExplanationOfBenefitByPatientPII = {
+	description: 'Query for a ExplanationOfBenefit by PatientPII',
+	resolve: scopeInvariant(scopeOptions, getExplanationOfBenefitByPatientPII),
+	type: BundleSchema,
+	args: Object.assign({}, SearchByPatientPIIArgs),
 };

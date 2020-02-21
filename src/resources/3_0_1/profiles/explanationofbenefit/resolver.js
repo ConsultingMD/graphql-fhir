@@ -87,3 +87,34 @@ module.exports.removeExplanationOfBenefit = function removeExplanationOfBenefit(
 	let { server, version, req, res } = context;
 	return {};
 };
+
+/**
+ * @name exports.getExplanationOfBenefitByPatientPII
+ * @static
+ * @summary getExplanationOfBenefitByPatientPII.
+ */
+module.exports.getExplanationOfBenefitByPatientPII = function getExplanationOfBenefitByPatientPII(
+	root,
+	args,
+	context = {},
+	info,
+) {
+	let { server, version, req, res } = context;
+	const bearerToken = require('../../../../utils/auth0.js')
+	const fetch = require('node-fetch')
+	return fetch('https://fhir.service-dev.grnds.com/fhir/ExplanationOfBenefit/_search?_query=byPatientPII&_sort=-entry.response.created&_lastUpdated=gt1900-06-01', {
+		headers: {
+		  'Authorization': 'Bearer ' + bearerToken,
+		  'Content-Type': 'application/json'
+		},
+		body: `[{ "family": "${args.family}", "ss_last4": "${args.usSsnLast4}", "dob": "${args.birthdate}" }]`,
+		method: 'POST'
+	  })
+	  .then(response => {
+		  return response.json();
+	   })
+	   .then(response => {
+		   console.log(response)
+		   return response;
+	   });
+};

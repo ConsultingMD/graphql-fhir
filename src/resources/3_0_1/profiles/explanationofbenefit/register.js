@@ -8,6 +8,7 @@ const {
 	ExplanationOfBenefitQuery,
 	ExplanationOfBenefitListQuery,
 	ExplanationOfBenefitInstanceQuery,
+	ExplanationOfBenefitByPatientPII,
 } = require('./query');
 
 /**
@@ -25,6 +26,7 @@ module.exports = {
 	query: {
 		ExplanationOfBenefit: ExplanationOfBenefitQuery,
 		ExplanationOfBenefitList: ExplanationOfBenefitListQuery,
+		ExplanationOfBenefitByPatientPII: ExplanationOfBenefitByPatientPII,
 	},
 	/**
 	 * Define Mutation Schema's here
