@@ -14,7 +14,7 @@ module.exports.getDocumentReference = function getDocumentReference(
 	console.log(args);
 	return {};
 };
-		
+
 
 /**
  * @name exports.getDocumentReferenceList

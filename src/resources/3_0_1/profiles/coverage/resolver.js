@@ -100,7 +100,7 @@ module.exports.getCoverageByPatientPII = function getCoverageByPatientPII(
    info,
 ) {
    let { server, version, req, res } = context;
-   const bearerToken = require('../../../../utils/auth0.js')
+	 const bearerToken = require('../../../../utils/auth0.js')
    const fetch = require('node-fetch')
    return fetch('https://fhir.uat.grandrounds.com/fhir/Coverage/_search?_query=byPatientPII', {
 	   headers: {
